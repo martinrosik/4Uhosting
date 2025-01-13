@@ -76,5 +76,7 @@ export default {
 </script>
 
 <style scoped>
-/* Add specific styles for the plans section */
+.order {
+  padding-top: 140px;
+}
 </style>

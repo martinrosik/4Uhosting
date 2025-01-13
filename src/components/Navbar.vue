@@ -71,4 +71,26 @@ export default {
 <style scoped>
 @import "@/assets/css/style.css";
 @import "@/assets/css/responsive.css";
+
+.header {
+  background: #2E438A; /* Navbar background */
+  position: fixed; /* Fixed navbar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 102px; /* Adjust based on design */
+  padding: 25px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navigation.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.main-content {
+  padding-top: 140px; /* Push content below the navbar */
+}
 </style>

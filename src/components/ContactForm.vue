@@ -76,12 +76,13 @@ export default {
   methods: {
     handleSubmit() {
       console.log("Form Submitted", this.formData);
-      // Add form submission logic here
     },
   },
 };
 </script>
 
 <style scoped>
-/* Contact form-specific styles */
+.contact {
+  padding-top: 140px;
+}
 </style>

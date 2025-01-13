@@ -1,7 +1,6 @@
 <template>
   <div>
     <Plans />
-    <Guarantee />
   </div>
 </template>
 
@@ -13,7 +12,6 @@ export default {
   name: "Hosting",
   components: {
     Plans,
-    Guarantee,
   },
 };
 </script>
