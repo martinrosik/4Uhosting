@@ -6,6 +6,7 @@ import Domain from "@/views/Domain.vue";
 import Contact from "@/views/Contact.vue";
 import Login from "@/views/Login.vue"
 import Register from "@/views/Register.vue"
+import Cart from "@/views/Cart.vue"
 
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -15,6 +16,7 @@ const routes = [
   { path: "/contact", name: "Contact", component: Contact },
   { path: "/login", name: "Login", component: Login },
   { path: "/register", name: "Register", component: Register },
+  { path: "/cart", name: "Cart", component: Cart },
 ];
 
 const router = createRouter({
