@@ -1,0 +1,42 @@
+[
+  {
+    "iconClass": "fa fa-rocket",
+    "title": "Your Website Faster",
+    "description": "Our hosting ensures blazing fast website speeds and performance.",
+    "extraDetails": [
+      "Optimized server architecture.",
+      "Integration with global CDN.",
+      "Real-time performance monitoring."
+    ]
+  },
+  {
+    "iconClass": "fa fa-hdd",
+    "title": "SSD Drives",
+    "description": "Experience high-speed storage with SSDs for seamless website operation.",
+    "extraDetails": [
+      "100% SSD storage for enhanced performance.",
+      "Lower latency and improved read/write speeds.",
+      "Perfect for database-heavy applications."
+    ]
+  },
+  {
+    "iconClass": "fa fa-lock",
+    "title": "Highest Data Security",
+    "description": "We prioritize the safety of your data with advanced security protocols.",
+    "extraDetails": [
+      "State-of-the-art encryption techniques.",
+      "Regular vulnerability assessments.",
+      "24/7 monitoring to prevent data breaches."
+    ]
+  },
+  {
+    "iconClass": "fa fa-thumbs-up",
+    "title": "Guarantee",
+    "description": "We provide reliable services you can trust.",
+    "extraDetails": [
+      "99.9% uptime guarantee.",
+      "Dedicated support team.",
+      "Hassle-free money-back policy."
+    ]
+  }
+]

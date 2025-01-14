@@ -1,22 +1,13 @@
 <template>
-  <div class="modal-overlay">
+  <div v-if="isVisible" class="modal-overlay">
     <div class="modal-content">
-      <h3 class="modal-title">Purchase {{ domain.extension }}</h3>
-      <p class="modal-price">Price: ${{ domain.price.toFixed(2) }}</p>
-      <div class="modal-input">
-        <label for="quantity">Quantity:</label>
-        <input
-          id="quantity"
-          type="number"
-          v-model.number="quantity"
-          min="1"
-          class="quantity-input"
-        />
-      </div>
-      <p class="modal-total">Total: ${{ totalPrice.toFixed(2) }}</p>
+      <h3 class="modal-title">{{ plan.name }}</h3>
+      <p class="modal-price">Price: {{ plan.price }}</p>
+      <p class="modal-total">Do you want to proceed with the purchase?</p>
+
       <div class="modal-buttons">
-        <button class="btn btn-buy" @click="confirmPurchase">Add to Cart</button>
-        <button class="btn btn-cancel" @click="$emit('close')">Cancel</button>
+        <button class="btn-cancel" @click="closePopup">Close</button>
+        <button class="btn-buy" @click="confirmPurchase">Confirm</button>
       </div>
     </div>
   </div>
@@ -26,34 +17,39 @@
 import { useCartStore } from "@/stores/counter.js";
 
 export default {
+  name: "PlansPurchase",
   props: {
-    domain: {
+    isVisible: {
+      type: Boolean,
+      required: true
+    },
+    plan: {
       type: Object,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      cartStore: useCartStore(), // Store reference
-      quantity: 1,
-    };
-  },
-  computed: {
-    totalPrice() {
-      return this.domain.price * this.quantity;
-    },
+      required: true
+    }
   },
   methods: {
-    confirmPurchase() {
-      this.cartStore.addToCart({
-        name: this.domain.extension, // Name of the domain
-        price: this.domain.price, // Price of the domain
-        quantity: this.quantity, // Quantity
-        type: 'domain', // Correctly set type as 'domain'
-      });
-      this.$emit("close"); // Close modal
+    closePopup() {
+      // Emit the 'close' event to close the modal
+      this.$emit("close");
     },
-  },
+    confirmPurchase() {
+      const cartStore = useCartStore();
+      // Set default quantity to 1 if not specified
+      const quantity = 1;
+
+      // Add the selected plan to the cart
+      cartStore.addToCart({
+        name: this.plan.name,
+        price: parseFloat(this.plan.price.replace('$', '')), // Remove the dollar sign for numerical calculation
+        quantity: quantity,
+        type: 'plan', // Mark it as a 'plan'
+      });
+
+      // After adding to the cart, close the modal
+      this.$emit("close");
+    }
+  }
 };
 </script>
 
@@ -94,19 +90,6 @@ export default {
   color: #43eee4;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
-}
-
-.modal-input {
-  margin-bottom: 20px;
-}
-
-.quantity-input {
-  width: 60px;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  font-size: 16px;
 }
 
 .modal-buttons {

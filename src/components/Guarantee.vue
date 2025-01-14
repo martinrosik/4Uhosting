@@ -11,59 +11,94 @@
       </div>
       <div class="row">
         <div
-          v-for="(guarantee, index) in guarantees"
-          :key="index"
+          v-for="guarantee in guarantees"
+          :key="guarantee.slug"
           class="col-lg-3 col-md-6"
         >
-          <div id="ho_co" class="guarantee-box_main">
+          <div id="ho_co" class="guarantee-box_main" @click="openDetails(guarantee.slug)">
             <div class="guarantee-box text_align_center">
-              <i :class="guarantee.iconClass"></i>
+              <i :class="guarantee.iconClass" class="guarantee-icon"></i>
               <h3>{{ guarantee.title }}</h3>
               <p>{{ guarantee.description }}</p>
             </div>
-            <a class="read_more" href="javascript:void(0)">Read More</a>
+            <a
+              class="read_more"
+              href="javascript:void(0)"
+              @click.stop="openDetails(guarantee.slug)"
+            >
+              Read More
+            </a>
           </div>
         </div>
       </div>
     </div>
+    <GuaranteeDetails
+      v-if="selectedGuarantee"
+      :guarantee="selectedGuarantee"
+      @close="closeDetails"
+    />
   </div>
 </template>
 
 <script>
+import GuaranteeDetails from "./GuaranteeDetails.vue";
+import axios from "axios";
+
 export default {
   name: "Guarantee",
-  data() {
+  components: {
+    GuaranteeDetails,
+  },
+  data: function() {
     return {
-      guarantees: [
-        {
-          iconClass: "fa fa-rocket",
-          title: "Your Website Faster",
-          description:
-            "Our hosting ensures blazing fast website speeds and performance.",
-        },
-        {
-          iconClass: "fa fa-hdd",
-          title: "SSD Drives",
-          description:
-            "Experience high-speed storage with SSDs for seamless website operation.",
-        },
-        {
-          iconClass: "fa fa-lock",
-          title: "Highest Data Security",
-          description:
-            "We prioritize the safety of your data with advanced security protocols.",
-        },
-        {
-          iconClass: "fa fa-thumbs-up",
-          title: "Guarantee",
-          description: "We provide reliable services you can trust.",
-        },
-      ],
+      guarantees: [],
+      selectedGuarantee: null,
     };
+  },
+  methods: {
+    fetchGuarantees: function() {
+      axios
+        .get("/src/assets/data.json")
+        .then((response) => {
+          // Add slug to each guarantee based on its title
+          this.guarantees = response.data.map((item) => ({
+            ...item,
+            slug: this.generateSlug(item.title),
+          }));
+        })
+        .catch((error) => {
+          console.error("Error loading guarantees:", error);
+        });
+    },
+    generateSlug: function(text) {
+      // Convert title to a URL-friendly slug
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, ""); // Remove leading or trailing hyphens
+    },
+    openDetails: function(slug) {
+      this.selectedGuarantee = this.guarantees.find((g) => g.slug === slug);
+    },
+    closeDetails: function() {
+      this.selectedGuarantee = null;
+    },
+  },
+  created: function() {
+    this.fetchGuarantees();
   },
 };
 </script>
 
 <style scoped>
-/* Add specific styles for the guarantee section */
+.guarantee-icon {
+  color: #2e438a;
+  font-size: 8em; /* Make icons 10 times bigger */
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.guarantee-icon:hover {
+  color: #43eee4; /* Change color on hover */
+}
 </style>

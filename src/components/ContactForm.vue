@@ -76,6 +76,7 @@ export default {
   methods: {
     handleSubmit() {
       console.log("Form Submitted", this.formData);
+      this.$router.push("/");
     },
   },
 };

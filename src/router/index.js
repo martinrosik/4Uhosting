@@ -4,49 +4,56 @@ import About from "@/views/About.vue";
 import Hosting from "@/views/Hosting.vue";
 import Domain from "@/views/Domain.vue";
 import Contact from "@/views/Contact.vue";
-import Login from "@/views/Login.vue"
-import Register from "@/views/Register.vue"
-import Cart from "@/views/Cart.vue"
+import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
+import Cart from "@/views/Cart.vue";
+import NotFound from "@/views/NotFound.vue"; // Ensure the file name matches your actual file
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
   {
     path: "/about",
     name: "About",
-    component: About
+    component: About,
   },
   {
     path: "/hosting",
     name: "Hosting",
-    component: Hosting
+    component: Hosting,
   },
   {
     path: "/domain",
     name: "Domain",
-    component: Domain
+    component: Domain,
   },
   {
     path: "/contact",
     name: "Contact",
-    component: Contact
+    component: Contact,
   },
   {
     path: "/login",
     name: "Login",
-    component: Login
+    component: Login,
   },
-  { path: "/register",
+  {
+    path: "/register",
     name: "Register",
-    component: Register
+    component: Register,
   },
   {
     path: "/cart",
     name: "Cart",
-    component: Cart
+    component: Cart,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

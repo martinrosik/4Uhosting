@@ -25,17 +25,25 @@
                 </li>
               </ul>
             </div>
-            <a class="read_more" href="javascript:void(0)">Buy Now</a>
+            <a class="read_more" href="javascript:void(0)" @click="openPopup(plan)">Buy Now</a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- PlansPurchase Component -->
+    <PlansPurchase :isVisible="showPopup" :plan="selectedPlan" @close="closePopup" />
   </div>
 </template>
 
 <script>
+import PlansPurchase from "@/components/PlanPurchase.vue";
+
 export default {
   name: "Plans",
+  components: {
+    PlansPurchase
+  },
   data() {
     return {
       plans: [
@@ -70,7 +78,19 @@ export default {
           ],
         },
       ],
+      showPopup: false,
+      selectedPlan: null,
     };
+  },
+  methods: {
+    openPopup(plan) {
+      this.selectedPlan = plan;
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
+      this.selectedPlan = null;
+    },
   },
 };
 </script>

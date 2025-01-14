@@ -5,11 +5,19 @@
         <h1 class="text-center mb-4" style="color: #2E438A;">Shopping Cart</h1>
         <div class="row">
           <div class="col-md-8">
-            <div class="card mb-3" v-for="(item, index) in cartItems" :key="item.name">
+            <div
+              class="card mb-3"
+              v-for="(item, index) in cartItems"
+              :key="item.name"
+            >
               <div class="row g-0">
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title" style="color: #2E438A;">Domain: "{{ item.name }}"</h5>
+                    <h5 class="card-title" style="color: #2E438A;">
+                      <!-- Check if the item is a domain or a plan -->
+                      <span v-if="item.type === 'domain'">Domain: "{{ item.name }}"</span>
+                      <span v-else>Plan: "{{ item.name }}"</span>
+                    </h5>
                     <p class="card-text">Price: ${{ item.price.toFixed(2) }}</p>
                     <div class="d-flex align-items-center">
                       <button

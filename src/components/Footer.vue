@@ -3,62 +3,69 @@
     <div class="footer">
       <div class="container">
         <div class="row">
+          <!-- Choose Section -->
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="infoma text_align_left">
-              <h3>Choose.</h3>
+              <h3>Choose</h3>
               <ul class="commodo">
-                <li>Commodo</li>
-                <li>consequat. Duis a</li>
-                <li>ute irure dolor</li>
-                <li>in reprehenderit</li>
-                <li>in voluptate</li>
+                <li v-for="(item, index) in chooseItems" :key="index">{{ item }}</li>
               </ul>
             </div>
           </div>
+
+          <!-- Support Section -->
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="infoma">
-              <h3>Get Support.</h3>
+              <h3>Get Support</h3>
               <ul class="conta">
-                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Address : Loram Ipusm</li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i> Call : +01 1234567890</li>
+                <li>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  Address: {{ contactInfo.address }}
+                </li>
+                <li>
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  Call: {{ contactInfo.phone }}
+                </li>
                 <li>
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <a href="javascript:void(0)"> Email : demo@gmail.com</a>
+                  <a :href="`mailto:${contactInfo.email}`">Email: {{ contactInfo.email }}</a>
                 </li>
               </ul>
             </div>
           </div>
+
+          <!-- Company Section -->
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="infoma">
-              <h3>Company.</h3>
+              <h3>Company</h3>
               <ul class="menu_footer">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/domain">Domain</a></li>
-                <li><a href="/hosting">Hosting</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li v-for="link in companyLinks" :key="link.text">
+                  <router-link :to="link.path">{{ link.text }}</router-link>
+                </li>
               </ul>
             </div>
           </div>
+
+          <!-- Services Section -->
           <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="infoma text_align_left">
-              <h3>Services.</h3>
+              <h3>Services</h3>
               <ul class="commodo">
-                <li>Commodo</li>
-                <li>consequat. Duis a</li>
-                <li>ute irure dolor</li>
-                <li>in reprehenderit</li>
-                <li>in voluptate</li>
+                <li v-for="(service, index) in services" :key="index">{{ service }}</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Copyright Section -->
       <div class="copyright">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <p>© 2020 All Rights Reserved. <a href="https://html.design/"> Free html Templates</a></p>
+              <p>© {{ currentYear }} All Rights Reserved.
+                <a href="https://html.design/">Free HTML Templates</a>
+              </p>
             </div>
           </div>
         </div>
@@ -70,9 +77,27 @@
 <script>
 export default {
   name: "Footer",
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+      chooseItems: ["Commodo", "consequat. Duis a", "ute irure dolor", "in reprehenderit", "in voluptate"],
+      contactInfo: {
+        address: "Loram Ipusm",
+        phone: "+01 1234567890",
+        email: "demo@gmail.com",
+      },
+      companyLinks: [
+        { text: "Home", path: "/" },
+        { text: "About", path: "/about" },
+        { text: "Domain", path: "/domain" },
+        { text: "Hosting", path: "/hosting" },
+        { text: "Contact", path: "/contact" },
+      ],
+      services: ["Commodo", "consequat. Duis a", "ute irure dolor", "in reprehenderit", "in voluptate"],
+    };
+  },
 };
 </script>
 
 <style scoped>
-/* Add Footer Specific CSS */
 </style>

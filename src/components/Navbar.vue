@@ -50,7 +50,7 @@ export default {
           <ul class="email text_align_right">
             <li>
               <router-link to="/cart" class="cart-icon">
-                <i class="fa fa-shopping-bag" aria-hidden="true">
+                <i class="fa fa-shopping-bag cart-img" aria-hidden="true">
                   <span class="cart-count">{{ cartQuantity }}</span>
                 </i>
               </router-link>
@@ -64,21 +64,22 @@ export default {
 </template>
 
 <style scoped>
-.cart-icon {
+.cart-img {
   position: relative;
+  font-size: 1.5rem; /* Increase the icon size */
 }
 
 .cart-count {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -14px;
+  left: 18px;
   background: red;
   color: white;
-  font-size: 12px;
+  font-size: 12px; /* Slightly larger text */
   font-weight: bold;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px; /* Slightly larger circle */
+  height: 25px; /* Same as width */
   display: flex;
   justify-content: center;
   align-items: center;
