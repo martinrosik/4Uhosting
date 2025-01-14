@@ -99,4 +99,4 @@ For any inquiries or feedback, reach out via email: [martinrosik@gmail.com](mail
 ## 🔗 Links
 
 - [Original Template](https://html.design/download/free-hosting-template/)
-- [GitHub Repository](https://github.com/your-username/4uhosting)
+- [GitHub Repository](https://github.com/martinrosik/4Uhosting)
