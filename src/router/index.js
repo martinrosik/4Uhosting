@@ -9,14 +9,45 @@ import Register from "@/views/Register.vue"
 import Cart from "@/views/Cart.vue"
 
 const routes = [
-  { path: "/", name: "Home", component: Home },
-  { path: "/about", name: "About", component: About },
-  { path: "/hosting", name: "Hosting", component: Hosting },
-  { path: "/domain", name: "Domain", component: Domain },
-  { path: "/contact", name: "Contact", component: Contact },
-  { path: "/login", name: "Login", component: Login },
-  { path: "/register", name: "Register", component: Register },
-  { path: "/cart", name: "Cart", component: Cart },
+  {
+    path: "/",
+    name: "Home",
+    component: Home
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: About
+  },
+  {
+    path: "/hosting",
+    name: "Hosting",
+    component: Hosting
+  },
+  {
+    path: "/domain",
+    name: "Domain",
+    component: Domain
+  },
+  {
+    path: "/contact",
+    name: "Contact",
+    component: Contact
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: Login
+  },
+  { path: "/register",
+    name: "Register",
+    component: Register
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: Cart
+  },
 ];
 
 const router = createRouter({

@@ -1,3 +1,17 @@
+<script>
+import { useCartStore } from "@/stores/counter.js";
+
+export default {
+  name: "Navbar",
+  computed: {
+    cartQuantity() {
+      const cartStore = useCartStore();
+      return cartStore.totalItems; // Reactive total items
+    },
+  },
+};
+</script>
+
 <template>
   <div class="header">
     <div class="container">
@@ -13,44 +27,31 @@
         </div>
         <div class="col-md-8 col-sm-12">
           <nav class="navigation navbar navbar-expand-md navbar-dark">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarsExample04"
-              aria-controls="navbarsExample04"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarsExample04">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <router-link class="nav-link" to="/" exact>Home</router-link>
-                </li>
-                <li class="nav-item">
-                  <router-link class="nav-link" to="/about">About</router-link>
-                </li>
-                <li class="nav-item">
-                  <router-link class="nav-link" to="/hosting">Hosting</router-link>
-                </li>
-                <li class="nav-item">
-                  <router-link class="nav-link" to="/domain">Domain</router-link>
-                </li>
-                <li class="nav-item">
-                  <router-link class="nav-link" to="/contact">Contact</router-link>
-                </li>
-              </ul>
-            </div>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <router-link class="nav-link" to="/" exact>Home</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/about">About</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/hosting">Hosting</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/domain">Domain</router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/contact">Contact</router-link>
+              </li>
+            </ul>
           </nav>
         </div>
         <div class="col-md-2 d_none">
           <ul class="email text_align_right">
             <li>
-              <router-link to="/cart">
+              <router-link to="/cart" class="cart-icon">
                 <i class="fa fa-shopping-bag" aria-hidden="true">
-                  <span>0</span>
+                  <span class="cart-count">{{ cartQuantity }}</span>
                 </i>
               </router-link>
             </li>
@@ -62,35 +63,24 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Navbar",
-};
-</script>
-
 <style scoped>
-@import "@/assets/css/style.css";
-@import "@/assets/css/responsive.css";
-
-.header {
-  background: #2E438A; /* Navbar background */
-  position: fixed; /* Fixed navbar */
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  height: 102px; /* Adjust based on design */
-  padding: 25px 0;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.cart-icon {
+  position: relative;
 }
 
-.navigation.navbar-dark .navbar-nav .nav-link {
-  color: #fff;
-  font-size: 17px;
-  text-transform: uppercase;
-}
-
-.main-content {
-  padding-top: 140px; /* Push content below the navbar */
+.cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
