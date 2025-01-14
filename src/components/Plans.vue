@@ -30,9 +30,7 @@
         </div>
       </div>
     </div>
-
-    <!-- PlansPurchase Component -->
-    <PlansPurchase :isVisible="showPopup" :plan="selectedPlan" @close="closePopup" />
+    <PlansPurchase v-if="selectedPlan" :isVisible="showPopup" :plan="selectedPlan" @close="closePopup" />
   </div>
 </template>
 
@@ -42,9 +40,9 @@ import PlansPurchase from "@/components/PlanPurchase.vue";
 export default {
   name: "Plans",
   components: {
-    PlansPurchase
+    PlansPurchase,
   },
-  data() {
+  data: function () {
     return {
       plans: [
         {
@@ -83,11 +81,11 @@ export default {
     };
   },
   methods: {
-    openPopup(plan) {
+    openPopup: function (plan) {
       this.selectedPlan = plan;
       this.showPopup = true;
     },
-    closePopup() {
+    closePopup: function () {
       this.showPopup = false;
       this.selectedPlan = null;
     },
@@ -95,8 +93,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .order {
   padding-top: 140px;
+}
+
+.read_more {
+  padding: 0;
 }
 </style>

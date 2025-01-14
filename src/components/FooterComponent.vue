@@ -3,7 +3,6 @@
     <div class="footer">
       <div class="container">
         <div class="row">
-          <!-- Choose Section -->
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="infoma text_align_left">
               <h3>Choose</h3>
@@ -12,8 +11,6 @@
               </ul>
             </div>
           </div>
-
-          <!-- Support Section -->
           <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="infoma">
               <h3>Get Support</h3>
@@ -33,8 +30,6 @@
               </ul>
             </div>
           </div>
-
-          <!-- Company Section -->
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="infoma">
               <h3>Company</h3>
@@ -45,8 +40,6 @@
               </ul>
             </div>
           </div>
-
-          <!-- Services Section -->
           <div class="col-lg-2 col-md-6 col-sm-6">
             <div class="infoma text_align_left">
               <h3>Services</h3>
@@ -57,8 +50,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Copyright Section -->
       <div class="copyright">
         <div class="container">
           <div class="row">
@@ -76,8 +67,8 @@
 
 <script>
 export default {
-  name: "Footer",
-  data() {
+  name: "FooterComponent",
+  data: function() {
     return {
       currentYear: new Date().getFullYear(),
       chooseItems: ["Commodo", "consequat. Duis a", "ute irure dolor", "in reprehenderit", "in voluptate"],
@@ -99,5 +90,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 </style>

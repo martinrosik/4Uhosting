@@ -28,7 +28,7 @@
 <script>
 export default {
   name: "AboutContent",
-  data() {
+  data: function() {
     return {
       aboutImage: new URL("@/assets/images/about.png", import.meta.url).href
     };
@@ -36,8 +36,7 @@ export default {
 };
 </script>
 
-<style scoped>
-/* About section-specific styles */
+<style>
 .about {
   padding-top: 140px;
 }

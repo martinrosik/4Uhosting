@@ -67,7 +67,6 @@ export default {
         password: this.password,
         remember: this.remember,
       });
-      // Add your form submission logic here
     },
   },
 };
@@ -84,15 +83,15 @@ export default {
 .card-header {
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: #2E438A !important; /* Custom color */
+  background-color: #2E438A !important;
 }
 .btn-custom {
-  background-color: #2E438A !important; /* Custom color */
+  background-color: #2E438A !important;
   border: none;
   color: white;
 }
 .btn-custom:hover {
-  background-color: #233366 !important; /* Darker shade for hover */
+  background-color: #233366 !important;
 }
 .card-body {
   padding: 2rem;

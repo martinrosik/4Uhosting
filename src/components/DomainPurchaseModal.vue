@@ -34,7 +34,6 @@ export default {
   },
   data() {
     return {
-      cartStore: useCartStore(), // Store reference
       quantity: 1,
     };
   },
@@ -45,13 +44,14 @@ export default {
   },
   methods: {
     confirmPurchase() {
-      this.cartStore.addToCart({
-        name: this.domain.extension, // Name of the domain
-        price: this.domain.price, // Price of the domain
-        quantity: this.quantity, // Quantity
-        type: 'domain', // Correctly set type as 'domain'
+      const cartStore = useCartStore();
+      cartStore.addToCart({
+        name: this.domain.extension,
+        price: this.domain.price,
+        quantity: this.quantity,
+        type: 'domain',
       });
-      this.$emit("close"); // Close modal
+      this.$emit("close");
     },
   },
 };

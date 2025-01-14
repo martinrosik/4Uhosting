@@ -20,10 +20,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .notfound-wrapper{
   padding-top: 140px;
-  height: 400px;
+  height: 500px;
 }
 
 .not-found {

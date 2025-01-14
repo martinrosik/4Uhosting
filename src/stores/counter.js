@@ -16,17 +16,17 @@ export const useCartStore = defineStore('cart', {
     addToCart(item) {
       const existingItem = this.cartItems.find(cartItem => cartItem.name === item.name && cartItem.type === item.type);
       if (existingItem) {
-        existingItem.quantity += item.quantity; // Update quantity if item already exists
+        existingItem.quantity += item.quantity;
       } else {
-        this.cartItems.push(item); // Add new item to cart
+        this.cartItems.push(item);
       }
     },
     updateQuantity(index, quantity) {
-      if (quantity < 1) return; // Prevent setting quantity below 1
+      if (quantity < 1) return;
       this.cartItems[index].quantity = quantity;
     },
     removeItem(index) {
-      this.cartItems.splice(index, 1); // Remove item from the cart
+      this.cartItems.splice(index, 1);
     },
   },
 });

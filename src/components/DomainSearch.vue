@@ -65,7 +65,9 @@ import DomainPurchaseModal from "@/components/DomainPurchaseModal.vue";
 
 export default {
   name: "DomainSearch",
-  components: { DomainPurchaseModal },
+  components: {
+    DomainPurchaseModal,
+  },
   data() {
     return {
       searchQuery: "",
@@ -113,7 +115,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import "@/assets/css/style.css";
 @import "@/assets/css/responsive.css";
 

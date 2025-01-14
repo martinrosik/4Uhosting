@@ -14,7 +14,6 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title" style="color: #2E438A;">
-                      <!-- Check if the item is a domain or a plan -->
                       <span v-if="item.type === 'domain'">Domain: "{{ item.name }}"</span>
                       <span v-else>Plan: "{{ item.name }}"</span>
                     </h5>
@@ -75,7 +74,7 @@ import { useCartStore } from "@/stores/counter.js";
 export default {
   data() {
     return {
-      cartStore: useCartStore(), // Store reference for reactive data
+      cartStore: useCartStore(),
     };
   },
   computed: {
@@ -100,16 +99,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .cart-wrapper {
   padding-top: 140px;
 }
+
 .cart-container {
   padding: 20px;
 }
 
 .main-content {
-  flex-grow: 1; /* Ensures main content pushes footer down */
+  flex-grow: 1;
 }
 
 .card {

@@ -20,14 +20,17 @@ export default {
   props: {
     guarantee: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
+  },
+  data() {
+    return {};
   },
   methods: {
     close() {
       this.$emit('close');
-    },
-  },
+    }
+  }
 };
 </script>
 

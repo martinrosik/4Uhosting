@@ -63,7 +63,7 @@
 <script>
 export default {
   name: "ContactForm",
-  data() {
+  data: function () {
     return {
       formData: {
         name: "",
@@ -74,7 +74,7 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
+    handleSubmit: function () {
       console.log("Form Submitted", this.formData);
       this.$router.push("/");
     },
@@ -82,7 +82,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .contact {
   padding-top: 140px;
 }

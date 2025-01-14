@@ -60,7 +60,6 @@ export default {
       axios
         .get("/src/assets/data.json")
         .then((response) => {
-          // Add slug to each guarantee based on its title
           this.guarantees = response.data.map((item) => ({
             ...item,
             slug: this.generateSlug(item.title),
@@ -71,11 +70,10 @@ export default {
         });
     },
     generateSlug: function(text) {
-      // Convert title to a URL-friendly slug
       return text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, ""); // Remove leading or trailing hyphens
+        .replace(/(^-|-$)/g, "");
     },
     openDetails: function(slug) {
       this.selectedGuarantee = this.guarantees.find((g) => g.slug === slug);
@@ -90,15 +88,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .guarantee-icon {
   color: #2e438a;
-  font-size: 8em; /* Make icons 10 times bigger */
+  font-size: 8em;
   transition: color 0.3s ease;
   cursor: pointer;
 }
 
 .guarantee-icon:hover {
-  color: #43eee4; /* Change color on hover */
+  color: #43eee4;
 }
 </style>

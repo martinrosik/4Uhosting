@@ -23,7 +23,6 @@
                 <div class="col-md-6">
                   <div class="dream_img">
                     <figure>
-                      <!-- Update image path to use assets -->
                       <img src="@/assets/images/dream_img.png" alt="Dream Image" />
                     </figure>
                   </div>
@@ -40,21 +39,14 @@
 <script>
 export default {
   name: "Banner",
-  data() {
+  data: function () {
     return {
-      // Add any required data properties here
     };
   },
-  methods: {
-    // Add any methods if necessary
-  },
-  mounted() {
-    // Lifecycle hook for when the component is mounted
-  }
 };
 </script>
 
-<style scoped>
-@import "@/assets/css/style.css"; /* Import global styles */
-@import "@/assets/css/responsive.css"; /* Import responsive styles */
+<style>
+@import "@/assets/css/style.css";
+@import "@/assets/css/responsive.css";
 </style>

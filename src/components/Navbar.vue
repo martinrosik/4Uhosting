@@ -3,10 +3,14 @@ import { useCartStore } from "@/stores/counter.js";
 
 export default {
   name: "Navbar",
+  data() {
+    return {
+      cartStore: useCartStore(),
+    };
+  },
   computed: {
     cartQuantity() {
-      const cartStore = useCartStore();
-      return cartStore.totalItems; // Reactive total items
+      return this.cartStore.totalItems;
     },
   },
 };
@@ -63,10 +67,10 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
 .cart-img {
   position: relative;
-  font-size: 1.5rem; /* Increase the icon size */
+  font-size: 1.5rem;
 }
 
 .cart-count {
@@ -75,11 +79,11 @@ export default {
   left: 18px;
   background: red;
   color: white;
-  font-size: 12px; /* Slightly larger text */
+  font-size: 12px;
   font-weight: bold;
   border-radius: 50%;
-  width: 25px; /* Slightly larger circle */
-  height: 25px; /* Same as width */
+  width: 25px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;

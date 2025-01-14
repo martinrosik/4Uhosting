@@ -30,23 +30,19 @@ export default {
   },
   methods: {
     closePopup() {
-      // Emit the 'close' event to close the modal
       this.$emit("close");
     },
     confirmPurchase() {
       const cartStore = useCartStore();
-      // Set default quantity to 1 if not specified
       const quantity = 1;
 
-      // Add the selected plan to the cart
       cartStore.addToCart({
         name: this.plan.name,
-        price: parseFloat(this.plan.price.replace('$', '')), // Remove the dollar sign for numerical calculation
+        price: parseFloat(this.plan.price.replace('$', '')),
         quantity: quantity,
-        type: 'plan', // Mark it as a 'plan'
+        type: 'plan',
       });
 
-      // After adding to the cart, close the modal
       this.$emit("close");
     }
   }
