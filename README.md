@@ -43,12 +43,12 @@ src/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/4uhosting.git
+   git clone https://github.com/martinrosik/4Uhosting
    ```
 
 2. **Navigate to the project directory:**
    ```bash
-   cd 4uhosting
+   cd 4Uhosting
    ```
 
 3. **Install dependencies:**
@@ -71,9 +71,9 @@ src/
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="https://github.com/martinrosik/TearsOfTheLizardKing/blob/master/TheBindingofIsaac.jpg" alt="Home page preview">
+  <img src="https://github.com/martinrosik/4Uhosting/blob/master/homepage.png" alt="Home page preview">
   <br>
-  <em>Home page preview</em>
+  <em>Home page design</em>
 </p>
 
 ---
@@ -86,7 +86,7 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## 📝 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project has no license it is my class project for exam. Also it is for my portfolio...Feel free to use it for anything you want! 
 
 ---
 
