@@ -16,7 +16,7 @@ Welcome to **4uHosting**, an online shop for purchasing domain names and hosting
 
 ## 🛠️ Technologies Used
 
-- **Vue.js** 🌟
+- **Vue.js 3** 🌟
 - **Vue Router** 🔗
 - **Pinia** 📂
 - **HTML5, CSS3 & Bootstrap** 🎨
