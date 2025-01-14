@@ -19,7 +19,7 @@ Welcome to **4uHosting**, an online shop for purchasing domain names and hosting
 - **Vue.js** 🌟
 - **Vue Router** 🔗
 - **Pinia** 📂
-- **HTML5 & CSS3** 🎨
+- **HTML5, CSS3 & Bootstrap** 🎨
 - **JavaScript (ES6)** ⚡
 
 ---
